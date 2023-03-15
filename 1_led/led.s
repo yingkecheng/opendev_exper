@@ -6,22 +6,22 @@ _start:
     ldr r1, =0XFFFFFFFF 
     str r1, [r0]
 
-    ldr r1, =0X020C406C
+    ldr r0, =0X020C406C
     str r1, [r0]
 
-    ldr r1, =0X020C4070
+    ldr r0, =0X020C4070
     str r1, [r0]
 
-    ldr r1, =0X020C4074
+    ldr r0, =0X020C4074
     str r1, [r0]
 
-    ldr r1, =0X020C4078
+    ldr r0, =0X020C4078
     str r1, [r0]
 
-    ldr r1, =0X020C407C
+    ldr r0, =0X020C407C
     str r1, [r0]
 
-    ldr r1, =0X020C4080
+    ldr r0, =0X020C4080
     str r1, [r0]
 
     /* 2.设置GPIO1_IO03复用为GPIO1_IO3 */
