@@ -21,3 +21,11 @@ void led_switch(int led, int status) {
             break;
     }
 }
+
+void led_on(void) {
+	GPIO1->DR &= ~(1 << 3);
+}
+
+void led_off(void) {
+	GPIO1->DR |= (1 << 3);
+}

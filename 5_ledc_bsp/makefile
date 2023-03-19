@@ -6,29 +6,29 @@ LD			:= $(CROSS_COMPILE)ld
 OBJCOPY		  	:= $(CROSS_COMPILE)objcopy
 OBJDUMP		  	:= $(CROSS_COMPILE)objdump
 
-INCDIRS			:= 	imx6ul \
-				bsp/clk	\
-				bsp/led	\
-				bsp/delay
+INCDIRS			:= imx6ul \
+			   bsp/clk \
+			   bsp/led \
+			   bsp/delay
 
-SRCDIRS			:=	project \
-				bsp/clk	\
-				bsp/led	\
-				bsp/delay
+SRCDIRS			:= project \
+			   bsp/clk \
+			   bsp/led \
+			   bsp/delay
 
-INCLUDE			:=	$(patsubst %, -I %, $(INCDIRS))
+INCLUDE			:= $(patsubst %, -I %, $(INCDIRS))
 
-SFILES			:= 	$(foreach dir, $(SRCDIRS), $(wildcard $ (dir)/*.s))
-CFILES			:= 	$(foreach dir, $(SRCDIRS), $(wildcard $ (dir)/*.c))
+SFILES			:= $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.s))
+CFILES			:= $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.c))
 
-SFILENDIR		:=	$(notdir $(SFILES))
-CFILENDIR		:=	$(notdir $(CFILES))
+SFILENDIR		:= $(notdir $(SFILES))
+CFILENDIR		:= $(notdir $(CFILES))
 
-SOBJS			:= 	$(patsubst %, obj/%, $(SFILENDIR:.s=.o))
-COBJS			:= 	$(patsubst %, obj/%, $(CFILENDIR:.c=.o))
-OBJS			:= 	$(SOBJS) $(COBJS)
+SOBJS			:= $(patsubst %, obj/%, $(SFILENDIR:.s=.o))
+COBJS			:= $(patsubst %, obj/%, $(CFILENDIR:.c=.o))
+OBJS			:= $(SOBJS) $(COBJS)
 
-VPATH			:=	$(SRCDIRS)
+VPATH			:= $(SRCDIRS)
 
 .PHONY: clean
 
@@ -37,10 +37,10 @@ $(TARGET).bin: $(OBJS)
 	$(OBJCOPY) -O binary -S $(TARGET).elf $@
 	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
 
-$(SOBJS): obj/%.o : %.s
+$(SOBJS): obj/%.o: %.s
 	$(GCC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
 
-$(COBJS): obj/%.o : %.c
+$(COBJS): obj/%.o: %.c
 	$(GCC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
 
 clean:

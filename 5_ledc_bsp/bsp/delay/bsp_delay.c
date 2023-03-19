@@ -1,6 +1,8 @@
 #include "bsp_delay.h"
 
-static delay_short(volatile unsigned int n) {
+static void delay_short(volatile unsigned int n);
+
+static void delay_short(volatile unsigned int n) {
     while (n--);
 }
 

@@ -7,5 +7,7 @@
 
 void led_init(void);
 void led_switch(int led, int status);
+void led_on(void);
+void led_off(void);
 
 #endif /* __BSP_LED_H */
