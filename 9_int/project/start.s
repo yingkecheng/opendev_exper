@@ -13,8 +13,8 @@ _start:
 Reset_Handler:
 	
 	cpsid i
-    mrc p15, 0, r0, c1, c0, 0
-	bic	r0, r0, #(0x1 << 12)
+	mrc p15, 0, r0, c1, c0, 0
+	bic r0, r0, #(0x1 << 12)
 	bic r0, r0, #(0x1 << 2)
 	bic r0, r0, #0x2
 	bic r0, r0, #(0x1 << 11)
@@ -32,24 +32,24 @@ Reset_Handler:
 
 	/* 进入IRQ模式 */
 	mrs r0, cpsr
-	bic r0, r0, 0x1F
-	orr r0, r0, 0x12
+	bic r0, r0, #0x1F
+	orr r0, r0, #0x12
 	msr cpsr, r0
-	ldr sp, 0x80600000
+	ldr sp, =0x80600000
 	
 	/* 进入SYS模式 */
 	mrs r0, cpsr
-    bic r0, r0, 0x1F
-    orr r0, r0, 0x1F
-    msr cpsr, r0
-    ldr sp, 0x80400000
+	bic r0, r0, #0x1F
+	orr r0, r0, #0x1F
+	msr cpsr, r0
+	ldr sp, =0x80400000
 	
 	/* 进入SVC模式 */
 	mrs r0, cpsr
-    bic r0, r0, 0x1F
-    orr r0, r0, 0x13
-    msr cpsr, r0
-    ldr sp, 0x80200000
+	bic r0, r0, #0x1F
+	orr r0, r0, #0x13
+	msr cpsr, r0
+	ldr sp, =0x80200000
 
 	cpsie i				/* 打开全局中断 */
 
@@ -83,7 +83,7 @@ DataAbort_Handler:
 	bx r0
 
 /* 未使用的中断 */
-NotUsed_Handler
+NotUsed_Handler:
 	ldr r0, =NotUsed_Handler
 	bx r0
 
