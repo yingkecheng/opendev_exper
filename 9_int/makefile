@@ -1,26 +1,30 @@
-CROSS_COMPILE		?= arm-linux-gnueabihf-
-TARGET		  	?= clk
+CROSS_COMPILE	?= arm-linux-gnueabihf-
+TARGET			?= int
 
-GCC			:= $(CROSS_COMPILE)gcc
-LD			:= $(CROSS_COMPILE)ld
-OBJCOPY		  	:= $(CROSS_COMPILE)objcopy
-OBJDUMP		  	:= $(CROSS_COMPILE)objdump
+CC				:= $(CROSS_COMPILE)gcc
+LD				:= $(CROSS_COMPILE)ld
+OBJCOPY			:= $(CROSS_COMPILE)objcopy
+OBJDUMP			:= $(CROSS_COMPILE)objdump
 
 INCDIRS			:= imx6ul \
-			   bsp/clk \
-			   bsp/led \
-			   bsp/delay \
-			   bsp/beep \
-			   bsp/gpio \
-			   bsp/key
+				bsp/clk \
+			   	bsp/led \
+			   	bsp/delay \
+			   	bsp/beep \
+			   	bsp/gpio \
+			   	bsp/key	\
+				bsp/exit \
+				bsp/int
 
 SRCDIRS			:= project \
-			   bsp/clk \
-			   bsp/led \
-			   bsp/delay \
-			   bsp/beep \
-			   bsp/gpio \
-			   bsp/key
+				bsp/clk \
+				bsp/led \
+				bsp/delay \
+				bsp/beep \
+				bsp/gpio \
+				bsp/key \
+				bsp/exit \
+				bsp/int
 
 INCLUDE			:= $(patsubst %, -I %, $(INCDIRS))
 
@@ -44,10 +48,10 @@ $(TARGET).bin: $(OBJS)
 	$(OBJDUMP) -D -m arm $(TARGET).elf > $(TARGET).dis
 
 $(SOBJS): obj/%.o: %.s
-	$(GCC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
+	$(CC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
 
 $(COBJS): obj/%.o: %.c
-	$(GCC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
+	$(CC) -Wall -nostdlib -c -O2 $(INCLUDE) -o $@ $<
 
 clean:
 	rm -rf $(TARGET).elf $(TARGET).bin $(TARGET).dis $(SOBJS) $(COBJS)

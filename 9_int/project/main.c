@@ -3,26 +3,26 @@
 #include "bsp_led.h"
 #include "bsp_beep.h"
 #include "bsp_key.h"
+#include "bsp_int.h"
+#include "bsp_exit.h"
 
 int main(void) {
-    int i = 0;
-    int keyvalue = 0;
-    unsigned char led_state = OFF;
-
-    imx6u_clkinit();
-
+	unsigned char state = OFF;
+	
+	int_init();
+	imx6ul_clkinit();
     clk_enable();
     led_init();
     key_init();
+	beep_init();
+	exit_init();
 
 
     while (1) {
-       led_on();
-       delay(500);
-       led_off();
-       delay(500);
+		state != state;
+		led_switch(LED0, state);
+		delay(500);
     }
-
     return 0;
 }
 
