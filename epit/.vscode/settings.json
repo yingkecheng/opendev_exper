@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "bsp_clk.h": "c",
+        "bsp_epit.h": "c"
+    }
+}
