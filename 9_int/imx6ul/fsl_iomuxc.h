@@ -1,38 +1,20 @@
-/*
- * Copyright (c) 2016, Freescale Semiconductor, Inc.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * o Redistributions of source code must retain the above copyright notice, this list
- *   of conditions and the following disclaimer.
- *
- * o Redistributions in binary form must reproduce the above copyright notice, this
- *   list of conditions and the following disclaimer in the documentation and/or
- *   other materials provided with the distribution.
- *
- * o Neither the name of copyright holder nor the names of its
- *   contributors may be used to endorse or promote products derived from this
- *   software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+/**************************************************************
+Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
+文件名	: 	 fsl_iomuxc.h
+作者	   : 左忠凯修改NXP官方SDK
+版本	   : V1.0
+描述	   : NXP官方SDK的寄存器地址定义文档
+其他	   : NXP官方SDK的寄存器地址定义文档，默认基于IAR的，
+		 由左忠凯移植到Liux下。
+论坛 	   : www.wtmembed.com
+日志	   : 初版V1.0 2019/1/4 左忠凯移植
+**************************************************************/
 
 #ifndef _FSL_IOMUXC_H_
 #define _FSL_IOMUXC_H_
 
-#include "fsl_common.h"
 #include "MCIMX6Y2.h"
+#include "fsl_common.h"
 
 /*!
  * @addtogroup iomuxc_driver
@@ -1067,11 +1049,7 @@
 #define IOMUXC_GRP_DDRMODE                                   0x00000000U, 0x0U, 0x00000000U, 0x0U, 0x020E04B0U
 #define IOMUXC_GRP_DDR_TYPE                                  0x00000000U, 0x0U, 0x00000000U, 0x0U, 0x020E04B4U
 
-/*@}*/
 
-#if defined(__cplusplus)
-extern "C" {
-#endif /*__cplusplus */
 
 /*! @name Configuration */
 /*@{*/
@@ -1141,12 +1119,5 @@ static inline void IOMUXC_SetPinConfig(uint32_t muxRegister,
         *((volatile uint32_t *)configRegister) = configValue;
     }
 }
-/*@}*/
-
-#if defined(__cplusplus)
-}
-#endif /*__cplusplus */
-
-/*! @}*/
 
 #endif /* _FSL_IOMUXC_H_ */

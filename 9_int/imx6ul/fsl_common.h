@@ -1,51 +1,19 @@
-/*
- * Copyright (c) 2015-2016, Freescale Semiconductor, Inc.
- * Copyright 2016-2017 NXP
- *
- * Redistribution and use in source and binary forms, with or without modification,
- * are permitted provided that the following conditions are met:
- *
- * o Redistributions of source code must retain the above copyright notice, this list
- *   of conditions and the following disclaimer.
- *
- * o Redistributions in binary form must reproduce the above copyright notice, this
- *   list of conditions and the following disclaimer in the documentation and/or
- *   other materials provided with the distribution.
- *
- * o Neither the name of the copyright holder nor the names of its
- *   contributors may be used to endorse or promote products derived from this
- *   software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
- * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+/**************************************************************
+Copyright © zuozhongkai Co., Ltd. 1998-2019. All rights reserved.
+文件名	: 	 fsl_common.h
+作者	   : 左忠凯修改NXP官方SDK
+版本	   : V1.0
+描述	   : NXP官方SDK的通用关宏定义文档
+其他	   : NXP官方SDK的通用宏定义文档，默认基于IAR的，
+		 由左忠凯移植到Liux下。
+论坛 	   : www.wtmembed.com
+日志	   : 初版V1.0 2019/1/4 左忠凯移植
+**************************************************************/
 
 #ifndef _FSL_COMMON_H_
 #define _FSL_COMMON_H_
 
-/**
-#include <assert.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-#include <stdlib.h> */
-
-#if defined(__ICCARM__)
-#include <stddef.h>
-#endif
-
-// #include "fsl_device_registers.h"
-#include "cc.h"
-
-
+#include "cc.h"				/* cc.h为自行添加的文件 */
 /*!
  * @addtogroup ksdk_common
  * @{
@@ -151,5 +119,6 @@ enum _generic_status
 
 /*! @brief Type used for all status and error return values. */
 typedef int32_t status_t;
+
 
 #endif /* _FSL_COMMON_H_ */
