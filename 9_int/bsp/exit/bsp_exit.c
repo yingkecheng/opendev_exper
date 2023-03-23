@@ -26,7 +26,7 @@ void gpio1_io18_irqhandler(void) {
 	delay(10);
 
 	if (gpio_pinread(GPIO1, 18)	== 0) {
-		state != state;
+		state = !state;
 		beep_switch(state);	
 	}
 	gpio_clearintflags(GPIO1, 18);

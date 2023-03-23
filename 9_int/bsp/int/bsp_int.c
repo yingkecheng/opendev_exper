@@ -6,7 +6,7 @@ static sys_irq_handle_t irqTable[NUMBER_OF_INT_VECTORS];
 
 void int_init(void)
 {
-	GIC_Init(void);
+	GIC_Init();
 	system_irqtable_init();
 	__set_VBAR((uint32_t)0x87800000); /* 中断向量表偏移 */
 }

@@ -13,7 +13,7 @@ int gpio_pinread(GPIO_Type *base, int pin) {
     return ((base->DR >> pin) & 0x01);
 }
 
-void gpio_writepin(GPIO_Type *base, int pin, int value) {
+void gpio_pinwrite(GPIO_Type *base, int pin, int value) {
     if (value == 0U) {
         base->DR &= ~(1U << pin);
     } else {
@@ -46,8 +46,8 @@ void gpio_initcofig(GPIO_Type *base, unsigned int pin, gpio_interrupt_mode_t pin
 			break;
 
 		case kGPIO_IntRisingEdge:
-			*isr &= ~(3U << (2 * icrShift));
-			*isr |= (2U << (2 * icrShift));
+			*icr &= ~(3U << (2 * icrShift));
+			*icr |= (2U << (2 * icrShift));
 			break;
 
 		case kGPIO_IntFallingEdge:
