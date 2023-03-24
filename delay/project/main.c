@@ -11,7 +11,8 @@ int main(void) {
 	
 	int_init();
 	imx6u_clkinit();
-    clk_enable();
+   	delay_init();
+	clk_enable();
 	led_init();
 	key_init();
 	beep_init();
