@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "bsp_clk.h": "c",
-        "bsp_epit.h": "c"
+        "bsp_epit.h": "c",
+        "bsp_uart.h": "c",
+        "stdio.h": "c",
+        "corecrt_stdio_config.h": "c"
     }
 }
